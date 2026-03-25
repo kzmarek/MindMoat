@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "MindMoad",
+  "name": "MindMoat",
   "version": "1.0",
   "description": "Blocks distracting sites after a daily time limit or on-demand.",
   "permissions": ["storage", "tabs", "activeTab"],
