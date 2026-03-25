@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Site Blocked</title>
+  <style>
+    body { 
+      display: flex; justify-content: center; align-items: center; 
+      height: 100vh; background-color: #f4f6f8; font-family: Arial, sans-serif; 
+      text-align: center; margin: 0;
+    }
+    .card { 
+      background: white; padding: 40px 30px; border-radius: 12px; 
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 400px; 
+    }
+    h1 { color: #d32f2f; margin-top: 0; font-size: 24px; }
+    p { color: #555; line-height: 1.5; font-size: 16px; }
+    .icon { font-size: 54px; margin-bottom: 15px; }
+    .footer { font-size: 13px; margin-top: 25px; color: #999; }
+  </style>
+</head>
+<body>
+  
+  <div class="card">
+    <div class="icon" id="blockIcon">🛑</div>
+    <h1 id="blockTitle">Site Blocked</h1>
+    <p id="blockMessage">You cannot access this site right now.</p>
+    
+    <div class="footer">
+      <i>Need access? Open the extension popup to manage your settings.</i>
+    </div>
+  </div>
+
+  <script src="blocked.js"></script>
+</body>
+</html>

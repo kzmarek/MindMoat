@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; width: 280px; padding: 15px; text-align: center; margin: 0; }
+    h2 { margin-top: 0; font-size: 16px; color: #333; }
+    .time { font-size: 28px; font-weight: bold; margin: 10px 0 10px 0; color: #d32f2f; }
+    .focus-time { color: #2e7d32; }
+    
+    .view { display: none; }
+    .active-view { display: block; }
+    
+    .input-group { text-align: left; margin-bottom: 10px; }
+    .input-group label { display: block; font-size: 13px; margin-bottom: 4px; font-weight: bold; }
+    input[type="number"], textarea { width: 100%; box-sizing: border-box; padding: 5px; }
+    textarea { height: 200px; resize: vertical; margin-bottom: 10px; }
+    
+    ul { text-align: left; padding-left: 20px; font-size: 13px; color: #555; margin-bottom: 15px; max-height: 200px; overflow-y: auto;}
+    
+    /* New style for the pause toggle */
+    .status-toggle { background: #f4f6f8; padding: 10px; border-radius: 6px; margin-bottom: 15px; text-align: left; font-size: 14px; font-weight: bold; border: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+    .status-toggle input { margin: 0 10px 0 0; width: 16px; height: 16px; cursor: pointer; }
+
+    button { width: 100%; padding: 10px; margin-bottom: 8px; cursor: pointer; border: none; border-radius: 4px; font-weight: bold; font-size: 14px;}
+    .btn-primary { background: #1976d2; color: white; }
+    .btn-success { background: #2e7d32; color: white; }
+    .btn-danger { background: #d32f2f; color: white; }
+    .btn-secondary { background: #e0e0e0; color: #333; }
+  </style>
+</head>
+<body>
+
+  <div id="normalView" class="view active-view">
+    <h2>Browsing Time Remaining</h2>
+    <div class="time" id="dailyTimeDisplay">00:00:00</div>
+    
+    <label class="status-toggle">
+      <span>Timer Active</span>
+      <input type="checkbox" id="enableToggle" checked>
+    </label>
+    
+    <div class="input-group">
+      <label>Tracked Sites:</label>
+      <ul id="readOnlySiteList"></ul>
+    </div>
+
+    <button id="startFocusBtn" class="btn-success">Start Focus Mode</button>
+    <button id="settingsBtn" class="btn-secondary">Settings</button>
+  </div>
+
+  <div id="focusView" class="view">
+    <h2>Focus Mode Active</h2>
+    <div class="time focus-time" id="focusTimeDisplay">00:00:00</div>
+    <p style="font-size: 12px; color: #666; margin-bottom: 20px;">All distracting sites are currently blocked.</p>
+    <button id="stopFocusBtn" class="btn-danger">Stop Focus Mode</button>
+  </div>
+
+  <div id="settingsView" class="view">
+    <h2>Settings</h2>
+    <div class="input-group">
+      <label for="limitMinutes">Daily Limit (minutes):</label>
+      <input type="number" id="limitMinutes" min="1" step="1">
+    </div>
+
+    <div class="input-group">
+      <label for="siteList">Blocked Sites (one per line):</label>
+      <textarea id="siteList"></textarea>
+    </div>
+    
+    <button id="saveBtn" class="btn-primary">Save Settings</button>
+    <button id="cancelBtn" class="btn-secondary">Cancel</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
